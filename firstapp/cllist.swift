@@ -59,12 +59,16 @@ class cllist: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("itemcell", forIndexPath: indexPath)
-    as! UITableViewCell
+    as! cuicell
     
     let item = items[indexPath.row] as Titem
     /*cell.textLabel?.text = item.name
     cell.detailTextLabel?.text = item.date
 */
+        cell.name.text = item.name
+        cell.date.text = item.date
+        cell.img.image  = self.imageForRating("1")
+        /*
         if let nameLabel = cell.viewWithTag(100) as? UILabel { //3
             nameLabel.text = item.name
         }
@@ -74,6 +78,7 @@ class cllist: UITableViewController {
         if let ratingImageView = cell.viewWithTag(102) as? UIImageView {
             ratingImageView.image = self.imageForRating("1")
         }
+*/
     return cell
     }
     

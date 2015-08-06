@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="itemcell" rowHeight="60" id="mJ4-Zk-kH9">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="itemcell" rowHeight="60" id="mJ4-Zk-kH9" customClass="cuicell" customModule="firstapp" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJ4-Zk-kH9" id="I0C-Fl-Pbf">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -47,6 +47,11 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="YhR-4Y-63E" id="qpv-Yh-9wM"/>
+                                    <outlet property="img" destination="EWI-9d-fyE" id="NvE-0Z-bbU"/>
+                                    <outlet property="name" destination="idN-28-pLi" id="Fnr-1p-Uur"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
