@@ -75,7 +75,7 @@
         <!--addlist-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="addlist" id="vXZ-lx-hvc" customClass="ViewController" customModule="firstapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="addlist" id="vXZ-lx-hvc" customClass="clitem" customModule="firstapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -84,24 +84,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="name" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="新产品" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="naI-it-Xiz">
-                                <rect key="frame" x="170" y="136" width="150" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQd-5W-5i9">
+                                <rect key="frame" x="165" y="130" width="233" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="date" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="生产日期" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X8Q-sI-jHO">
-                                <rect key="frame" x="170" y="195" width="150" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-Ge-2xC">
+                                <rect key="frame" x="165" y="201" width="233" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新产品" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-ds-w6Y">
-                                <rect key="frame" x="73" y="145" width="59" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新品牌" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gic-3Z-vsb">
+                                <rect key="frame" x="41" y="139" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="生产日期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgU-dC-2i5">
-                                <rect key="frame" x="73" y="199" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="生产日期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHQ-1R-jRI">
+                                <rect key="frame" x="41" y="210" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,12 +110,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="添加产品" id="d8c-Gi-lJs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UfV-tT-5dy"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ZMd-Gi-uyd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UfV-tT-5dy">
+                            <connections>
+                                <segue destination="azZ-oA-dQt" kind="unwind" unwindAction="cancelitem:" id="ZhK-Rx-Vx6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ZMd-Gi-uyd">
+                            <connections>
+                                <segue destination="azZ-oA-dQt" kind="unwind" identifier="saveitem" unwindAction="saveitem:" id="OuY-Xk-96a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="date" destination="gh3-Ge-2xC" id="5If-ot-57F"/>
+                        <outlet property="name" destination="TQd-5W-5i9" id="hEr-Xk-spM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <exit id="azZ-oA-dQt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="497" y="237"/>
         </scene>

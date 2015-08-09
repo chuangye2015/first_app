@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D47397081B77373700A658A4 /* clitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47397071B77373700A658A4 /* clitem.swift */; };
+		D473970D1B77580300A658A4 /* NSITEM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D473970C1B77580300A658A4 /* NSITEM.swift */; };
 		D4E9E4FA1B7382D90027862A /* cllist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E4F91B7382D90027862A /* cllist.swift */; };
 		D4E9E4FC1B7383F50027862A /* typitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E4FB1B7383F50027862A /* typitem.swift */; };
 		D4E9E4FE1B7384A10027862A /* iniitemlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E4FD1B7384A10027862A /* iniitemlist.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D47397071B77373700A658A4 /* clitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clitem.swift; sourceTree = "<group>"; };
+		D473970C1B77580300A658A4 /* NSITEM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSITEM.swift; sourceTree = "<group>"; };
 		D4E9E4F91B7382D90027862A /* cllist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cllist.swift; sourceTree = "<group>"; };
 		D4E9E4FB1B7383F50027862A /* typitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typitem.swift; sourceTree = "<group>"; };
 		D4E9E4FD1B7384A10027862A /* iniitemlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iniitemlist.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				D4E9E5111B7397180027862A /* cuicell.swift */,
 				D4E9E4F91B7382D90027862A /* cllist.swift */,
 				D4E9E4FB1B7383F50027862A /* typitem.swift */,
+				D473970C1B77580300A658A4 /* NSITEM.swift */,
 				D4F1FDC31B72EC8600255071 /* firstapp */,
 				D4F1FDD91B72EC8600255071 /* firstappTests */,
 				D4F1FDC21B72EC8600255071 /* Products */,
@@ -109,6 +114,7 @@
 				D4F1FDC61B72EC8600255071 /* AppDelegate.swift */,
 				D4F1FDC81B72EC8600255071 /* ViewController.swift */,
 				D4F1FDCA1B72EC8600255071 /* Main.storyboard */,
+				D47397071B77373700A658A4 /* clitem.swift */,
 				D4F1FDCD1B72EC8600255071 /* Images.xcassets */,
 				D4F1FDCF1B72EC8600255071 /* LaunchScreen.xib */,
 				D4F1FDC41B72EC8600255071 /* Supporting Files */,
@@ -248,8 +254,10 @@
 				D4E9E5121B7397180027862A /* cuicell.swift in Sources */,
 				D4E9E4FE1B7384A10027862A /* iniitemlist.swift in Sources */,
 				D4E9E4FA1B7382D90027862A /* cllist.swift in Sources */,
+				D47397081B77373700A658A4 /* clitem.swift in Sources */,
 				D4F1FDC91B72EC8600255071 /* ViewController.swift in Sources */,
 				D4F1FDC71B72EC8600255071 /* AppDelegate.swift in Sources */,
+				D473970D1B77580300A658A4 /* NSITEM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

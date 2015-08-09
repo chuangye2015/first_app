@@ -8,8 +8,29 @@
 
 import UIKit
 
+
 class cllist: UITableViewController {
     var items:[Titem] = itemdata
+    var itemlist = [cnsitem]()
+    
+    var frist:Bool!
+    var item:Titem?
+  
+    func saveitemlist(item:Titem){
+        let sitem = cnsitem(name: item.name, date: item.date, img: item.img)
+        self.itemlist.append(sitem)
+        println("append\(self.itemlist.count)")
+    }
+    
+    func saveBugs(item:Titem) {
+        saveitemlist(item)
+           println("savebug\(self.itemlist.count)")
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.itemlist)
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "items")
+        NSUserDefaults.standardUserDefaults().synchronize()
+         println("save?????")
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +64,7 @@ class cllist: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    var run = false
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
@@ -53,6 +74,31 @@ class cllist: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
+        println("table1")
+       
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey("items") as? NSData
+        {
+            
+            itemlist = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [cnsitem]
+             println("itemsconut=\(items.count)")
+            println("itemslistconut=\(itemlist.count)")
+            if items.count != itemlist.count
+            {
+            self.items.removeAll(keepCapacity: true)
+            println("bbb\(itemlist.count)")
+            println("bbb\(itemlist[itemlist.count-1].name)")
+            for var i = 0;i < itemlist.count;i++ {
+                let litem = Titem(name: itemlist[i].name, date: itemlist[i].date, img: "1")
+                
+                self.items.append(litem)
+                run = true
+            }
+            }
+            
+        } else {
+            println("aaa")
+            
+        }
         return items.count
     }
 
@@ -60,8 +106,28 @@ class cllist: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("itemcell", forIndexPath: indexPath)
     as! cuicell
-    
+println("xccc")
+        /*
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey("items") as? NSData {
+           itemlist = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [cnsitem]
+             println("bbb\(itemlist.count)")
+            println("bbb\(itemlist[itemlist.count-1].name)")
+            for var i = 0;i < itemlist.count;i++ {
+                 let litem = Titem(name: itemlist[i].name, date: itemlist[i].date, img: "1")
+
+                self.items.append(litem)
+            }
+            
+        } else {
+             println("aaa")
+         
+        }
+*/
+         println("count")
+        println(items.count)
+        println(indexPath.row)
     let item = items[indexPath.row] as Titem
+       // let item = items[indexPath.row] as cnsitem
     /*cell.textLabel?.text = item.name
     cell.detailTextLabel?.text = item.date
 */
@@ -81,7 +147,27 @@ class cllist: UITableViewController {
 */
     return cell
     }
+
+    @IBAction func cancelitem(segue:UIStoryboardSegue) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
+    @IBAction func saveitem(segue:UIStoryboardSegue) {
+        
+        
+        let itemc = segue.sourceViewController as! clitem
+        
+        //add the new player to the players array
+       // saveitemlist(itemc.item)
+        items.append(itemc.item)
+        self.saveBugs(itemc.item)
+       // items.append(newitem)
+        //update the tableView
+        let indexPath = NSIndexPath(forRow: items.count-1, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.
